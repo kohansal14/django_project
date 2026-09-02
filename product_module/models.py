@@ -20,7 +20,7 @@ class ProductCategory(models.Model):
         verbose_name_plural = 'دسته بندی ها'
 
 
-class ProdutBrand(models.Model):
+class ProductBrand(models.Model):
     title = models.CharField(max_length=300,verbose_name='عنوان برند',db_index=True)
     is_active = models.BooleanField(default=True,verbose_name='فعال/غیر فعال')
     def __str__(self):
@@ -40,7 +40,7 @@ class Product(models.Model):
     short_description = models.CharField(max_length=400,null=True,blank=True,verbose_name='توضیحات کوتاه ')
     description = models.TextField(verbose_name='توضیحات',null=True,blank=True)
     image = models.ImageField(upload_to='images/product_image',verbose_name='تصویر محصول',null=True,blank=True)
-    product_brand = models.ForeignKey(ProdutBrand,on_delete=models.CASCADE,verbose_name='برند محصول',related_name='product_brand',null=True,blank=True)
+    product_brand = models.ForeignKey(ProductBrand,on_delete=models.CASCADE,verbose_name='برند محصول',related_name='product_brand',null=True,blank=True)
     is_active = models.BooleanField(default=True,verbose_name='فعال/غیر فعال')
     is_delete = models.BooleanField(default=False,verbose_name='حذف شده / نشده')
     def __str__(self):
