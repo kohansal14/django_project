@@ -71,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'django_project.wsgi.application'
-
+AUTH_USER_MODEL = 'account_module.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
@@ -122,7 +122,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR/'static'
 ]
-
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL =  '/media/'
 
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
