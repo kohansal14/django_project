@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.template.defaultfilters import slugify
 # Create your models here.
 
 
@@ -25,7 +25,8 @@ class ProductBrand(models.Model):
     is_active = models.BooleanField(default=True,verbose_name='فعال/غیر فعال')
     def __str__(self):
             return self.title
-        
+
+
     class Meta:
             
         verbose_name = 'برند'
@@ -45,6 +46,13 @@ class Product(models.Model):
     is_delete = models.BooleanField(default=False,verbose_name='حذف شده / نشده')
     def __str__(self):
         return f"{self.title} ({self.price})"
+    
+    def save(self,*args,**kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Product,self).save(*args, **kwargs)
+        
+        
 
     class Meta:
         verbose_name = 'محصول'
