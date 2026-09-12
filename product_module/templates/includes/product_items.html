@@ -1,0 +1,27 @@
+{% load static %}
+{% load poll_extras  %}
+
+{% for product in products %}
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            {% if product.image %}
+                                                <img src="{{ product.image.url }}" alt="{{ product.title }}" />
+                                            {% else %}
+                                                <img src="{% static 'images/shop/product.jpg' %}" alt="{{ product.title }}" />
+                                            {% endif %}
+                                            <h2>{{ product.price }}</h2>
+                                            <p>{{ product.short_description|default:""|truncatewords:10 }}</p>
+                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+                                        </div>
+                                    </div>
+                                    <div class="choose">
+                                        <ul class="nav nav-pills nav-justified">
+                                            <li><a href=""><i class="fa fa-plus-square"></i>مشاهده جزییات</a></li>
+                                            <li><a href=""><i class="fa fa-plus-square"></i>مقایسه</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+{% endfor %}
