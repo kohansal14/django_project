@@ -5,16 +5,6 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
-.features_items .col-sm-4 {
-    display: flex;
-    margin-bottom: 20px;
-}
-.features_items .product-image-wrapper {
-    width: 100%;
-}
-.productinfo img {
-    height: 200px;
-    object-fit: cover;
 
 @font-face {
 	
@@ -2748,4 +2738,13 @@ h2.title {
   color: #FE980F;
 }
 
+.one-line-text {
+    text-align: right;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 270px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
 

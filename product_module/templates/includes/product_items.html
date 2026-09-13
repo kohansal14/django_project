@@ -1,5 +1,5 @@
 {% load static %}
-{% load poll_extras  %}
+
 
 {% for product in products %}
                             <div class="col-sm-4">
@@ -8,11 +8,11 @@
                                         <div class="productinfo text-center">
                                             {% if product.image %}
                                                 <img src="{{ product.image.url }}" alt="{{ product.title }}" />
-                                            {% else %}
-                                                <img src="{% static 'images/shop/product.jpg' %}" alt="{{ product.title }}" />
+{#                                            {% else %}#}
+{#                                                <img src="{% static 'images/shop/product.jpg' %}" alt="{{ product.title }}" />#}
                                             {% endif %}
                                             <h2>{{ product.price }}</h2>
-                                            <p>{{ product.short_description|default:""|truncatewords:10 }}</p>
+                                            <p class="one-line-text">{{ product.short_description }}</p>
                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
                                         </div>
                                     </div>
